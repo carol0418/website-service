@@ -1,5 +1,5 @@
 # 使用官方 Python 映像作為基礎映像
-FROM python:3.9-slim-buster
+FROM python:3.10-slim-buster
 
 # 設定工作目錄
 WORKDIR /app
