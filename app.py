@@ -29,13 +29,10 @@ load_dotenv()
 Maps_API_KEY = os.getenv('API_KEY')
 if os.getenv('GOOGLE_APPLICATION_CREDENTIALS_JSON_BASE64'):
     try:
-        # 解碼 Base64 字串
         cred_json_str = base64.b64decode(os.getenv('GOOGLE_APPLICATION_CREDENTIALS_JSON_BASE64')).decode('utf-8')
-        # 將 JSON 內容寫入臨時檔案
         temp_cred_file = "/tmp/google_credentials.json"
         with open(temp_cred_file, "w") as f:
             f.write(cred_json_str)
-        # 設定 GOOGLE_APPLICATION_CREDENTIALS 環境變數
         os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = temp_cred_file
         print("已從環境變數載入 Google 服務帳戶憑證。")
     except Exception as e:
